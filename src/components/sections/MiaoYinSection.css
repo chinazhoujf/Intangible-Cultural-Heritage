@@ -1,0 +1,172 @@
+.miao-pattern-flow {
+  position: absolute;
+  top: 0;
+  width: 120px;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.6;
+}
+
+.miao-pattern-left {
+  left: 0;
+  background:
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 40px,
+      rgba(124, 108, 84, 0.15) 40px,
+      rgba(124, 108, 84, 0.15) 41px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 40px,
+      rgba(124, 108, 84, 0.1) 40px,
+      rgba(124, 108, 84, 0.1) 41px
+    );
+  mask-image: linear-gradient(180deg, transparent, black 20%, black 80%, transparent);
+  -webkit-mask-image: linear-gradient(180deg, transparent, black 20%, black 80%, transparent);
+}
+
+.miao-pattern-right {
+  right: 0;
+  background:
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 50px,
+      rgba(200, 191, 168, 0.15) 50px,
+      rgba(200, 191, 168, 0.15) 51px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 50px,
+      rgba(200, 191, 168, 0.1) 50px,
+      rgba(200, 191, 168, 0.1) 51px
+    );
+  mask-image: linear-gradient(180deg, transparent, black 20%, black 80%, transparent);
+  -webkit-mask-image: linear-gradient(180deg, transparent, black 20%, black 80%, transparent);
+}
+
+.miao-silver-radiate {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 300px;
+  height: 300px;
+  border: 1px solid;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  animation: radiatePulse 4s ease-in-out infinite;
+}
+
+.miao-radiate-2 {
+  width: 450px;
+  height: 450px;
+  animation-delay: 1s;
+}
+
+.miao-radiate-3 {
+  width: 600px;
+  height: 600px;
+  animation-delay: 2s;
+}
+
+@keyframes radiatePulse {
+  0%, 100% {
+    opacity: 0.3;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  50% {
+    opacity: 0.6;
+    transform: translate(-50%, -50%) scale(1.05);
+  }
+}
+
+.miao-silver-shimmer {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  filter: blur(80px);
+  opacity: 0.15;
+  animation: shimmerGlow 5s ease-in-out infinite;
+}
+
+@keyframes shimmerGlow {
+  0%, 100% {
+    opacity: 0.1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  50% {
+    opacity: 0.2;
+    transform: translate(-50%, -50%) scale(1.3);
+  }
+}
+
+.miao-ornament-line {
+  width: 60px;
+  height: 1px;
+  opacity: 0.5;
+}
+
+.miao-corner-deco {
+  width: 20px;
+  height: 20px;
+  border: 1px solid;
+  opacity: 0.4;
+}
+
+.miao-corner-deco.tl {
+  border-right: none;
+  border-bottom: none;
+}
+
+.miao-corner-deco.br {
+  border-left: none;
+  border-top: none;
+}
+
+.miao-color-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  animation: dotPulse 2.5s ease-in-out infinite;
+}
+
+@keyframes dotPulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 0.8;
+  }
+}
+
+@media (max-width: 768px) {
+  .miao-pattern-flow {
+    width: 60px;
+  }
+
+  .miao-silver-radiate {
+    width: 200px;
+    height: 200px;
+  }
+
+  .miao-radiate-2 {
+    width: 300px;
+    height: 300px;
+  }
+
+  .miao-radiate-3 {
+    width: 400px;
+    height: 400px;
+  }
+}

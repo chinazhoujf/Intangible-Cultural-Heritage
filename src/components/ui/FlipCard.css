@@ -1,0 +1,236 @@
+.flip-card-container {
+  width: 100%;
+  height: 280px;
+  perspective: 1200px;
+  cursor: pointer;
+}
+
+.flip-card {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+  transform-style: preserve-3d;
+}
+
+.flip-card.flipped {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front,
+.flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  border-radius: 1.25rem;
+  overflow: hidden;
+  border: 1px solid;
+}
+
+.flip-card-front {
+  background: #f4e4dc;
+  display: flex;
+  flex-direction: column;
+  padding: 28px 24px 24px;
+}
+
+.flip-card-back {
+  transform: rotateY(180deg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 32px 28px;
+}
+
+.flip-card-number {
+  position: absolute;
+  top: 12px;
+  right: 20px;
+  font-family: 'Noto Serif SC', 'Source Han Serif SC', serif;
+  font-size: 4rem;
+  font-weight: 900;
+  line-height: 1;
+  user-select: none;
+  z-index: 0;
+}
+
+.flip-card-front-content {
+  position: relative;
+  z-index: 1;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.flip-card-front-title {
+  font-family: 'Noto Serif SC', 'Source Han Serif SC', serif;
+  font-size: 1.5rem;
+  font-weight: 900;
+  margin-bottom: 8px;
+  letter-spacing: 0.05em;
+}
+
+.flip-card-front-subtitle {
+  font-family: 'Noto Serif SC', 'Source Han Serif SC', serif;
+  font-size: 0.8rem;
+  color: rgba(61, 31, 31, 0.5);
+  letter-spacing: 0.1em;
+}
+
+.flip-card-seal {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  z-index: 1;
+}
+
+.flip-card-seal-inner {
+  width: 32px;
+  height: 32px;
+  border-radius: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #f4e4dc;
+  font-family: 'Noto Serif SC', 'Source Han Serif SC', serif;
+  font-size: 0.75rem;
+  font-weight: 900;
+}
+
+.flip-card-seal-inner::before {
+  content: '';
+  position: absolute;
+  inset: 12%;
+  border: 1px solid rgba(244, 228, 220, 0.6);
+}
+
+.flip-card-hint {
+  position: absolute;
+  bottom: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: 'Noto Serif SC', 'Source Han Serif SC', serif;
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  z-index: 1;
+  animation: flipHint 2s ease-in-out infinite;
+}
+
+@keyframes flipHint {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 1; }
+}
+
+.flip-card-corner {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  border-style: solid;
+  border-width: 0;
+  opacity: 0.5;
+  transition: all 0.3s ease;
+}
+
+.flip-card:hover .flip-card-corner {
+  opacity: 1;
+  width: 16px;
+  height: 16px;
+}
+
+.flip-card-corner.tl {
+  top: 8px;
+  left: 8px;
+  border-top-width: 1.5px;
+  border-left-width: 1.5px;
+}
+
+.flip-card-corner.tr {
+  top: 8px;
+  right: 8px;
+  border-top-width: 1.5px;
+  border-right-width: 1.5px;
+}
+
+.flip-card-corner.bl {
+  bottom: 8px;
+  left: 8px;
+  border-bottom-width: 1.5px;
+  border-left-width: 1.5px;
+}
+
+.flip-card-corner.br {
+  bottom: 8px;
+  right: 8px;
+  border-bottom-width: 1.5px;
+  border-right-width: 1.5px;
+}
+
+.flip-card-back-content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  color: #f4e4dc;
+}
+
+.flip-card-back-title {
+  font-family: 'Noto Serif SC', 'Source Han Serif SC', serif;
+  font-size: 1.4rem;
+  font-weight: 900;
+  margin-bottom: 12px;
+  letter-spacing: 0.05em;
+}
+
+.flip-card-back-line {
+  width: 30px;
+  height: 2px;
+  background: rgba(244, 228, 220, 0.5);
+  margin: 0 auto 16px;
+  border-radius: 2px;
+}
+
+.flip-card-back-desc {
+  font-family: 'Noto Serif SC', 'Source Han Serif SC', serif;
+  font-size: 0.85rem;
+  line-height: 1.9;
+  color: rgba(244, 228, 220, 0.9);
+}
+
+.flip-card-back-pattern {
+  position: absolute;
+  inset: 0;
+  background-image:
+    repeating-linear-gradient(
+      45deg,
+      #f4e4dc 0,
+      #f4e4dc 1px,
+      transparent 1px,
+      transparent 12px
+    ),
+    repeating-linear-gradient(
+      -45deg,
+      #f4e4dc 0,
+      #f4e4dc 1px,
+      transparent 1px,
+      transparent 12px
+    );
+  pointer-events: none;
+}
+
+@media (max-width: 768px) {
+  .flip-card-container {
+    height: 240px;
+  }
+
+  .flip-card-front-title {
+    font-size: 1.25rem;
+  }
+
+  .flip-card-number {
+    font-size: 3rem;
+  }
+}

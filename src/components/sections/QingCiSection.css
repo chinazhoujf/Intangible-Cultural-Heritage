@@ -1,0 +1,94 @@
+.qingci-ink-wash {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+  filter: blur(40px);
+}
+
+.ink-wash-1 {
+  width: 80%;
+  height: 70%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.ink-wash-2 {
+  width: 60%;
+  height: 50%;
+  top: 30%;
+  left: 20%;
+}
+
+.ink-wash-3 {
+  width: 50%;
+  height: 45%;
+  bottom: 20%;
+  right: 15%;
+}
+
+.qingci-vase-float {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 280px;
+  height: 420px;
+  z-index: 5;
+  transition: transform 0.3s ease-out;
+  animation: vaseFloat 6s ease-in-out infinite;
+}
+
+@keyframes vaseFloat {
+  0%, 100% {
+    translate: -50% -50%;
+  }
+  50% {
+    translate: -50% calc(-50% - 15px);
+  }
+}
+
+.qingci-vase-glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0.2;
+  filter: blur(80px);
+  animation: glowPulse 4s ease-in-out infinite;
+}
+
+@keyframes glowPulse {
+  0%, 100% {
+    opacity: 0.15;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  50% {
+    opacity: 0.3;
+    transform: translate(-50%, -50%) scale(1.2);
+  }
+}
+
+.qingci-vase-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 30px 60px rgba(0, 0, 0, 0.3));
+  mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
+}
+
+@media (max-width: 768px) {
+  .qingci-vase-float {
+    width: 200px;
+    height: 300px;
+  }
+
+  .qingci-ink-wash {
+    filter: blur(30px);
+  }
+}

@@ -1,0 +1,147 @@
+.piying-screen {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(180deg, #2a1810 0%, #1a0f0a 50%, #2a1810 100%);
+}
+
+.piying-screen-glow {
+  position: absolute;
+  width: 70%;
+  height: 60%;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.4;
+  animation: screenGlow 4s ease-in-out infinite;
+}
+
+@keyframes screenGlow {
+  0%, 100% {
+    opacity: 0.3;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.5;
+    transform: scale(1.1);
+  }
+}
+
+.piying-screen-frame {
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 50%;
+  height: 75%;
+  border: 3px solid;
+  border-radius: 4px;
+  opacity: 0.3;
+  box-shadow: inset 0 0 60px rgba(232, 168, 76, 0.1);
+}
+
+.piying-light-beam {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%;
+  height: 100%;
+  transition: transform 0.3s ease-out;
+  pointer-events: none;
+}
+
+.piying-shadow {
+  position: absolute;
+  top: 50%;
+  width: 120px;
+  height: 180px;
+  transform: translateY(-50%);
+  transition: transform 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+  pointer-events: none;
+  filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.5));
+  opacity: 0.8;
+}
+
+.piying-shadow img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: brightness(0.2) sepia(1) saturate(3) hue-rotate(-20deg);
+}
+
+.piying-shadow-1 {
+  left: 25%;
+}
+
+.piying-shadow-2 {
+  right: 25%;
+}
+
+.piying-curtain-top,
+.piying-curtain-bottom {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 8%;
+  opacity: 0.6;
+  z-index: 3;
+}
+
+.piying-curtain-top {
+  top: 0;
+  background: linear-gradient(180deg, rgba(139, 69, 19, 0.8) 0%, transparent 100%);
+}
+
+.piying-curtain-bottom {
+  bottom: 0;
+  background: linear-gradient(0deg, rgba(139, 69, 19, 0.8) 0%, transparent 100%);
+}
+
+.piying-deco-line {
+  width: 50px;
+  height: 1px;
+  opacity: 0.5;
+}
+
+.piying-role-chip {
+  padding: 6px 16px;
+  border-radius: 999px;
+  border: 1px solid;
+  font-family: 'Noto Serif SC', 'Source Han Serif SC', serif;
+  font-size: 0.875rem;
+  font-weight: 700;
+  animation: chipFloat 3s ease-in-out infinite;
+  backdrop-filter: blur(4px);
+  background: rgba(0, 0, 0, 0.2);
+}
+
+@keyframes chipFloat {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+}
+
+@media (max-width: 768px) {
+  .piying-shadow {
+    width: 60px;
+    height: 90px;
+  }
+
+  .piying-screen-frame {
+    width: 80%;
+    height: 70%;
+  }
+
+  .piying-shadow-1 {
+    left: 15%;
+  }
+
+  .piying-shadow-2 {
+    right: 15%;
+  }
+}

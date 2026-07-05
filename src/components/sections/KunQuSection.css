@@ -1,0 +1,142 @@
+.kunqu-stage-curtain {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+.kunqu-curtain-left,
+.kunqu-curtain-right {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 35%;
+  transition: transform 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.kunqu-curtain-left {
+  left: 0;
+  background:
+    linear-gradient(90deg, rgba(184, 57, 44, 0.4) 0%, rgba(184, 57, 44, 0.15) 60%, transparent 100%);
+}
+
+.kunqu-curtain-right {
+  right: 0;
+  background:
+    linear-gradient(270deg, rgba(184, 57, 44, 0.4) 0%, rgba(184, 57, 44, 0.15) 60%, transparent 100%);
+}
+
+.kunqu-stage-light {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60%;
+  height: 100%;
+  background:
+    radial-gradient(ellipse at 50% 0%, rgba(184, 57, 44, 0.15) 0%, transparent 60%);
+  transition: transform 0.4s ease-out;
+}
+
+.kunqu-water-sleeve {
+  position: absolute;
+  width: 200px;
+  height: 300px;
+  top: 50%;
+  transform-origin: top center;
+  transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+  pointer-events: none;
+  opacity: 0.6;
+}
+
+.kunqu-sleeve-left {
+  left: 10%;
+  background:
+    linear-gradient(135deg, rgba(244, 228, 220, 0.8) 0%, rgba(184, 57, 44, 0.3) 50%, transparent 100%);
+  border-radius: 0 0 50% 50%;
+  filter: blur(1px);
+}
+
+.kunqu-sleeve-right {
+  right: 10%;
+  background:
+    linear-gradient(225deg, rgba(244, 228, 220, 0.8) 0%, rgba(184, 57, 44, 0.3) 50%, transparent 100%);
+  border-radius: 0 0 50% 50%;
+  filter: blur(1px);
+}
+
+.kunqu-title-decoration {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60%;
+  height: 3px;
+  border-top: 1px solid;
+  border-bottom: 1px solid;
+  opacity: 0.4;
+}
+
+.kunqu-deco-top {
+  top: -20px;
+}
+
+.kunqu-deco-bottom {
+  bottom: -20px;
+}
+
+.kunqu-cloud-pattern {
+  width: 40px;
+  height: 20px;
+  border-radius: 50%;
+  opacity: 0.3;
+  mask-image: radial-gradient(ellipse at center, black 0%, transparent 70%);
+  -webkit-mask-image: radial-gradient(ellipse at center, black 0%, transparent 70%);
+}
+
+.kunqu-cloud-pattern-sm {
+  width: 24px;
+  height: 12px;
+  border-radius: 50%;
+  opacity: 0.3;
+}
+
+.kunqu-role-badge {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1.5px solid;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Noto Serif SC', 'Source Han Serif SC', serif;
+  font-weight: 900;
+  font-size: 1rem;
+  animation: roleBadgeFloat 3s ease-in-out infinite;
+}
+
+@keyframes roleBadgeFloat {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+@media (max-width: 768px) {
+  .kunqu-water-sleeve {
+    width: 100px;
+    height: 180px;
+    opacity: 0.4;
+  }
+
+  .kunqu-curtain-left,
+  .kunqu-curtain-right {
+    width: 25%;
+  }
+
+  .kunqu-role-badge {
+    width: 32px;
+    height: 32px;
+    font-size: 0.875rem;
+  }
+}
